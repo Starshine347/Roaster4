@@ -9,7 +9,7 @@ function createRosterItem(studentName, studentPronouns, studentHS) {
     </div>
   );
   return rosterItem;
-}
+} 
 
 export default function App() {
   let people = [
@@ -18,7 +18,14 @@ export default function App() {
     ["Christopher Bonifacio", "He/His", "Orchard Collegiate Academy"]
   ];
 
-  let studentrows = rosterData.map(createRosterItem);
+  let studentName = [
+    { firstName: "Mikkail", lastName: "Allan",Pronouns: "He/His",}
+    { firstName: "Justin", lastName: "Apupalo" },
+    { firstName: "Christopher", lastName: "Bonifacio" }
+  ];
+
+  
+
   let elements = [];
 
   elements = people.map(function (person) {
