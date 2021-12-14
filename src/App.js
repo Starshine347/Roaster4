@@ -1,35 +1,40 @@
 import "./styles.css";
 
-function createRosterItem(studentName, studentPronouns, studentHS) {
+function createRosterItem(persondata) {
   let rosterItem = (
     <div className="studentRow">
-      <div className="studentData name">{studentName}</div>
-      <div className="studentData pronouns">{studentPronouns}</div>
-      <div className="studentData highschool">{studentHS}</div>
+      <div className="studentData name">
+        {persondata.fn + " " + persondata.ln}
+      </div>
+      <div className="studentData pronouns">{persondata.pr}</div>
+      <div className="studentData highschool">{persondata.sc}</div>
     </div>
   );
   return rosterItem;
-} 
+}
 
 export default function App() {
   let people = [
-    ["Mikkail Allan", "He/His", "Williamsburg Charter Highschool"],
-    ["Justin Apupalo", "He/His", "NYIT"],
-    ["Christopher Bonifacio", "He/His", "Orchard Collegiate Academy"]
+    {
+      fn: "Mikkail",
+      ln: "Allan",
+      pr: "He/His",
+      sc: "Williamsburg Charter Highschool"
+    },
+    { fn: "Justin", ln: "Apupalo", pr: "He/His", sc: "NYIT" },
+    {
+      fn: "Christopher",
+      ln: "Bonifacio",
+      pr: "He/His",
+      sc: "Orchard Collegiate Academy"
+    },
+    { fn: "Chinaza", ln: "Onwukanjo", pr: "She/Her", sc: "FDA1" }
   ];
-
-  let studentName = [
-    { firstName: "Mikkail", lastName: "Allan",Pronouns: "He/His",}
-    { firstName: "Justin", lastName: "Apupalo" },
-    { firstName: "Christopher", lastName: "Bonifacio" }
-  ];
-
-  
 
   let elements = [];
 
   elements = people.map(function (person) {
-    return createRosterItem(person[0], person[1], person[2]);
+    return createRosterItem(person);
   });
 
   return (
